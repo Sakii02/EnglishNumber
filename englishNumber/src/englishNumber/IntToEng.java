@@ -10,19 +10,20 @@ public class IntToEng {
 
 	}
 
-	public static void printEnglishNumber(int input) {
+	public static String printEnglishNumber(int input) {
 		if(input < 20) {
         	System.out.println(from0To19(input));
+        	return (from0To19(input));
         } else {
 			int coreNumber = 10;
 			if(input%coreNumber == 0) {
 				//20以上で10で割り切れるとき
-
 				System.out.println(divisibleBy10(input/coreNumber -2));
+				return divisibleBy10(input/coreNumber -2);
 			} else {
 				//20以上で10で割り切れない時
 				System.out.println(divisibleBy10(input /coreNumber -2) +" "+from0To19(input % coreNumber));
-
+				return (divisibleBy10(input /coreNumber -2) +" "+from0To19(input % coreNumber));
 			}
 		}
 	}
