@@ -6,7 +6,11 @@ public class IntToEng {
 		// TODO 自動生成されたメソッド・スタブ
 		Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
-        System.out.println(translateEng(input));
+        if(input%10 == 0 && input > 10) {
+        	System.out.println(translateEng2(input/10 -2));
+        } else {
+        	System.out.println(translateEng(input));
+        }
 
 	}
 
@@ -22,9 +26,33 @@ public class IntToEng {
 				"seven",
 				"eight",
 				"nine",
-				"ten"
+				"ten",
+				"eleven",
+				"twelve",
+				"thirteen",
+				"fifteen",
+				"sixteen",
+				"seventeen",
+				"eighteen",
+				"nineteen",
 		};
         return english[n];
     }
+
+	static String translateEng2(int n) {
+		//20,30,40...
+		String[] english2 = {
+				"twenty",
+				"thirty",
+				"forty",
+				"fifty",
+				"sixty",
+				"seventy",
+				"eighty",
+				"ninety",
+				"one hundred",
+		};
+		return english2[n];
+	}
 
 }
