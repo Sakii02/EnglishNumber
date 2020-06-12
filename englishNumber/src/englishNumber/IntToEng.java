@@ -6,10 +6,16 @@ public class IntToEng {
 		// TODO 自動生成されたメソッド・スタブ
 		Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
-        if(input%10 == 0 && input > 10) {
+        if(input < 20) {
+        	System.out.println(translateEng(input));
+        }else if(input%10 == 0) {
+        	//20以上で10で割り切れるとき
+       
         	System.out.println(translateEng2(input/10 -2));
         } else {
-        	System.out.println(translateEng(input));
+        	//20以上で10で割り切れない時
+        	System.out.println(translateEng2(input /10 -2) +" "+translateEng(input % 10)); 
+        	
         }
 
 	}
