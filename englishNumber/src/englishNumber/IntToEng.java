@@ -6,21 +6,28 @@ public class IntToEng {
 		// TODO 自動生成されたメソッド・スタブ
 		Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
-        if(input < 20) {
-        	System.out.println(translateEng(input));
-        }else if(input%10 == 0) {
-        	//20以上で10で割り切れるとき
-       
-        	System.out.println(translateEng2(input/10 -2));
-        } else {
-        	//20以上で10で割り切れない時
-        	System.out.println(translateEng2(input /10 -2) +" "+translateEng(input % 10)); 
-        	
-        }
+        printEnglishNumber(input);
 
 	}
 
-	static String translateEng(int n) {
+	public static void printEnglishNumber(int input) {
+		if(input < 20) {
+        	System.out.println(from0To19(input));
+        } else {
+			int coreNumber = 10;
+			if(input%coreNumber == 0) {
+				//20以上で10で割り切れるとき
+
+				System.out.println(divisibleBy10(input/coreNumber -2));
+			} else {
+				//20以上で10で割り切れない時
+				System.out.println(divisibleBy10(input /coreNumber -2) +" "+from0To19(input % coreNumber));
+
+			}
+		}
+	}
+
+	static String from0To19(int n) {
 		String[] english = {
 				"zero",
 				"one",
@@ -36,6 +43,7 @@ public class IntToEng {
 				"eleven",
 				"twelve",
 				"thirteen",
+				"fourteen",
 				"fifteen",
 				"sixteen",
 				"seventeen",
@@ -45,7 +53,7 @@ public class IntToEng {
         return english[n];
     }
 
-	static String translateEng2(int n) {
+	static String divisibleBy10(int n) {
 		//20,30,40...
 		String[] english2 = {
 				"twenty",
